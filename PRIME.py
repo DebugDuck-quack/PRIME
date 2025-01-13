@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# Sprawdza, czy liczba jest pierwsza
+# Sprawdzamy, czy liczba jest pierwsza
 def is_prime(num):
     if num <= 1:
         return False
@@ -10,7 +10,7 @@ def is_prime(num):
             return False
     return True
 
-# Funkcja sprawdzająca liczbę
+# Funkcja sprawdzająca 
 def check_prime(event=None):
     try:
         num = int(entry.get())
@@ -21,20 +21,20 @@ def check_prime(event=None):
     except ValueError:
         messagebox.showerror("Błąd", "Wprowadź poprawną liczbę całkowitą.")
 
-# Funkcja zamykająca program
+# Funkcja zamykająca
 def quit_program():
     root.quit()
 
-# Funkcja walidująca wprowadzaną liczbę
+# Funkcja walidująca
 def validate_input(new_value):
     if new_value.isdigit() and len(new_value) <= 50:
         return True
-    elif new_value == "":  # Pozwól na puste pole
+    elif new_value == "":  
         return True
     else:
         return False
 
-# Okno główne
+# Okno aplikacji
 root = tk.Tk()
 root.title("PRIME-Checker by DebugDuck")
 root.geometry("650x300")
@@ -46,25 +46,25 @@ root.resizable(False, False)
 instruction_label = tk.Label(root, text="Wprowadź liczbę:", font=font_large)
 instruction_label.pack(pady=10)
 
-# Walidator długości liczby
+# Sprawdzenie długości liczby
 vcmd = (root.register(validate_input), '%P')
 
-# Pole wejścia
+# Pole wprowadzania
 entry = tk.Entry(root, font=font_large, width=30, validate="key", validatecommand=vcmd)
 entry.pack(pady=10)
 
-# Obsługa Enter
+# Obsługa przycisku Enter
 entry.bind("<Return>", check_prime)
 
-# Etykieta wyniku
+# Etykieta wynik
 result_label = tk.Label(root, text="", font=font_large)
 result_label.pack(pady=20)
 
-# Przycisk sprawdzania
+# Przycisk - sprawdzanie
 check_button = tk.Button(root, text="Sprawdź", font=font_large, width=15, command=check_prime)
 check_button.pack(pady=10)
 
-# Przycisk zakończenia
+# Przycisk -zakończenie
 quit_button = tk.Button(root, text="Zakończ", font=font_large, width=15, command=quit_program)
 quit_button.pack(pady=10)
 
